@@ -1,3 +1,72 @@
 <resources>
-    <string name="app_name">RecoApp</string>
+    <string name="app_name">RecoApp - Gestión de Residuos</string>
+    
+    <!-- Navigation -->
+    <string name="nav_header_title">RecoApp</string>
+    <string name="nav_header_subtitle">ECOLIM S.A.C.</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_register">Registrar Residuo</string>
+    <string name="nav_history">Historial</string>
+    <string name="nav_reports">Reportes</string>
+    <string name="nav_settings">Configuración</string>
+    
+    <!-- Welcome Screen -->
+    <string name="welcome_title">Bienvenido a RecoApp</string>
+    <string name="welcome_subtitle">Sistema de Gestión de Residuos Sólidos</string>
+    <string name="welcome_description">Digitaliza el proceso de recolección y registro de residuos sólidos para ECOLIM S.A.C.</string>
+    <string name="get_started">Comenzar</string>
+    
+    <!-- Registration Form -->
+    <string name="register_title">Registrar Residuo</string>
+    <string name="waste_type">Tipo de Residuo</string>
+    <string name="waste_quantity">Cantidad (kg)</string>
+    <string name="waste_location">Ubicación</string>
+    <string name="waste_date">Fecha</string>
+    <string name="waste_comments">Comentarios</string>
+    <string name="save_waste">Guardar Residuo</string>
+    <string name="scan_code">Escanear Código</string>
+    
+    <!-- Waste Types -->
+    <string name="organic_waste">Residuos Orgánicos</string>
+    <string name="recyclable_waste">Residuos Reciclables</string>
+    <string name="hazardous_waste">Residuos Peligrosos</string>
+    <string name="electronic_waste">Residuos Electrónicos</string>
+    <string name="general_waste">Residuos Generales</string>
+    
+    <!-- History Screen -->
+    <string name="history_title">Historial de Residuos</string>
+    <string name="no_waste_records">No hay registros de residuos</string>
+    <string name="total_collected">Total Recolectado</string>
+    
+    <!-- Reports Screen -->
+    <string name="reports_title">Reportes</string>
+    <string name="filter_by_date">Filtrar por Fecha</string>
+    <string name="filter_by_type">Filtrar por Tipo</string>
+    <string name="filter_by_quantity">Filtrar por Cantidad</string>
+    <string name="generate_report">Generar Reporte</string>
+    <string name="from_date">Fecha Desde</string>
+    <string name="to_date">Fecha Hasta</string>
+    
+    <!-- Common -->
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="search">Buscar</string>
+    <string name="filter">Filtrar</string>
+    <string name="clear">Limpiar</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="kg_unit">kg</string>
+    
+    <!-- Error Messages -->
+    <string name="error_empty_field">Este campo es obligatorio</string>
+    <string name="error_invalid_quantity">Cantidad inválida</string>
+    <string name="error_save_failed">Error al guardar el residuo</string>
+    <string name="error_load_failed">Error al cargar los datos</string>
+    
+    <!-- Success Messages -->
+    <string name="success_save">Residuo guardado exitosamente</string>
+    <string name="success_update">Residuo actualizado exitosamente</string>
+    <string name="success_delete">Residuo eliminado exitosamente</string>
 </resources>
