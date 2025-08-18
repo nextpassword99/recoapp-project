@@ -1,7 +1,7 @@
 package com.example.recoapp.data
 
 import androidx.room.*
-
+@Dao
 interface WasteDao {
     @Insert
     suspend fun insert(waste: Waste)
