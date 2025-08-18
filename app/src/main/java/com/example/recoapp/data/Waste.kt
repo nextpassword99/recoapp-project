@@ -6,7 +6,7 @@ import androidx.room.ColumnInfo
 import java.util.Date
 
 @Entity("waste")
-data class Waste (
+data class Waste(
     @PrimaryKey(true)
     val id: Int = 0,
 
@@ -14,7 +14,7 @@ data class Waste (
     val type: String,
 
     @ColumnInfo("quantity")
-    val quantity: String,
+    val quantity: Double,
 
     @ColumnInfo("location")
     val location: String,
@@ -23,6 +23,6 @@ data class Waste (
     val date: Date,
 
     @ColumnInfo("comments")
-    val comment: String?,
+    val comment: String?
 
 )
