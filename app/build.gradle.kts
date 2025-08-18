@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.recoapp"
+    namespace = "com.example.trodi"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.recoapp"
+        applicationId = "com.example.trodi"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -35,7 +35,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
-        compose = true
+        viewBinding = true
     }
 }
 
@@ -56,4 +56,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.navigation:navigation-ui:2.7.7")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.android.material:material:1.11.0")
+
 }
