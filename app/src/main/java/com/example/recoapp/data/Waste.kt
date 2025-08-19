@@ -5,24 +5,23 @@ import androidx.room.PrimaryKey
 import androidx.room.ColumnInfo
 import java.util.Date
 
-@Entity("waste")
+@Entity(tableName = "waste")
 data class Waste(
-    @PrimaryKey(true)
+    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
-    @ColumnInfo("type")
+    @ColumnInfo(name = "type")
     val type: String,
 
-    @ColumnInfo("quantity")
+    @ColumnInfo(name = "quantity")
     val quantity: Double,
 
-    @ColumnInfo("location")
+    @ColumnInfo(name = "location")
     val location: String,
 
-    @ColumnInfo("date")
+    @ColumnInfo(name = "date")
     val date: Date,
 
-    @ColumnInfo("comments")
-    val comment: String?
-
+    @ColumnInfo(name = "comments")
+    val comment: String? = null
 )
