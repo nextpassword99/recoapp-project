@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">RecoApp</string>
+
+    <string name="btn_register_waste">Registrar residuos</string>
+    <string name="btn_history">Historial</string>
+    <string name="btn_reports">Reportes</string>
+    <string name="btn_save_waste">Guardar residuo</string>
+
+    <string name="hint_waste_type">Tipo de residuo</string>
+    <string name="hint_quantity">Cantidad</string>
+    <string name="hint_location">Ubicación</string>
+    <string name="hint_date">Fecha</string>
+    <string name="hint_comments">Comentarios</string>
+
+    <string name="label_waste_type">Tipo: %1$s</string>
+    <string name="label_quantity">Cantidad: %1$.2f kg</string>
+    <string name="label_location">Ubicación: %1$s</string>
+    <string name="label_date">Fecha: %1$s</string>
+
+    <string name="main_title">ECOLIM S.A.C.</string>
+    <string name="filters_title">Filtros por fecha y tipo</string>
+    <string name="coming_soon">\(Próximamente: gráficas y exportación\)</string>
+
+    <string name="plastic">Plástico</string>
+    <string name="paper">Papel</string>
+    <string name="glass">Vidrio</string>
+    <string name="organic">Orgánico</string>
+    <string name="other">Otro</string>
+
+    <string name="correctly_saved">Guardado correctamente</string>
+    <string name="invalid_quantity">Cantidad inválida</string>
+    <string name="incomplete_form">Completa todos los campos</string>
 </resources>
