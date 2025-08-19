@@ -31,11 +31,11 @@ class RegisterActivity : AppCompatActivity() {
         val saveButton = findViewById<Button>(R.id.btnGuardar)
 
         wasteTypes = arrayOf(
-            R.string.plastic.toString(),
-            R.string.paper.toString(),
-            R.string.glass.toString(),
-            R.string.organic.toString(),
-            R.string.other.toString()
+            getString(R.string.plastic),
+            getString(R.string.paper),
+            getString(R.string.glass),
+            getString(R.string.organic),
+            getString(R.string.other)
         )
         typeSpinner.setAdapter(
             ArrayAdapter(
