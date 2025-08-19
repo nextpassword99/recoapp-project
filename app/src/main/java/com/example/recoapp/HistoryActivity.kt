@@ -22,10 +22,12 @@ class HistoryActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
+        val db = AppDatabase.getDatabase(this)
+
         lifecycleScope.launch {
-            val db = AppDatabase.getDatabase(this@HistoryActivity)
-            val wasteList = db.wasteDao().getAllWaste()
-            adapter.submitList(wasteList)
+            db.wasteDao().getAllWaste().collect { wasteList ->
+                adapter.submitList(wasteList)
+            }
         }
     }
 }
