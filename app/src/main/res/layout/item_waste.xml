@@ -1,4 +1,5 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
@@ -14,7 +15,7 @@
             android:id="@+id/textTipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo: Plástico"
+            android:text="@string/label_waste_type"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -24,21 +25,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Cantidad: 5.00 kg" />
+            android:text="@string/label_quantity" />
 
         <TextView
             android:id="@+id/textUbicacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Ubicación: Planta Norte" />
+            android:text="@string/label_location" />
 
         <TextView
             android:id="@+id/textFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Fecha: 18/08/2025"
+            android:text="@string/label_date"
             android:textAllCaps="false" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
