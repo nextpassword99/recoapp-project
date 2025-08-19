@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.trodi"
+    namespace = "com.example.recoapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.trodi"
+        applicationId = "com.example.recoapp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -68,5 +67,8 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.compose.material3:material3:1.1.2")
     implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${libs.versions.lifecycleRuntimeKtx.get()}")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:${libs.versions.lifecycleRuntimeKtx.get()}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${libs.versions.lifecycleRuntimeKtx.get()}")
 
 }
