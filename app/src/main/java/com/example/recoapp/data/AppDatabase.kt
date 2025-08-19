@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
-@Database([Waste::class], version = 1)
+@Database(entities = [Waste::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun wasteDao(): WasteDao
@@ -29,6 +29,4 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
     }
-
-
 }
