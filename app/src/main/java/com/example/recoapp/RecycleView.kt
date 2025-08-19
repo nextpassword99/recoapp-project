@@ -37,13 +37,9 @@ class WasteAdapter : RecyclerView.Adapter<WasteAdapter.ViewHolder>() {
         val waste = wasteList[position]
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-        holder.typeText.text =
-            holder.itemView.context.getString(R.string.label_waste_type, waste.type)
-        holder.quantityText.text =
-            holder.itemView.context.getString(R.string.label_quantity, waste.quantity)
-        holder.locationText.text =
-            holder.itemView.context.getString(R.string.label_location, waste.location)
-        holder.dateText.text =
-            holder.itemView.context.getString(R.string.label_date, dateFormat.format(waste.date))
+        holder.typeText.text = waste.type
+        holder.quantityText.text = waste.quantity.toString()
+        holder.locationText.text = waste.location
+        holder.dateText.text = dateFormat.format(waste.date)
     }
 }
