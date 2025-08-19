@@ -30,4 +30,11 @@
     <string name="correctly_saved">Guardado correctamente</string>
     <string name="invalid_quantity">Cantidad inválida</string>
     <string name="incomplete_form">Completa todos los campos</string>
+
+    <string name="hint_waste_type_optional">Tipo de residuo (opcional)</string>
+    <string name="hint_start_date">Fecha de inicio</string>
+    <string name="hint_end_date">Fecha de fin</string>
+    <string name="btn_generate_report">Generar Reporte</string>
+    <string name="all_types">Todos</string>
+    <string name="select_date_range">Por favor, selecciona un rango de fechas.</string>
 </resources>
