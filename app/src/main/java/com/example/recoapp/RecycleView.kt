@@ -4,42 +4,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recoapp.data.Waste
 import java.text.SimpleDateFormat
 import java.util.*
 
-class WasteAdapter : RecyclerView.Adapter<WasteAdapter.ViewHolder>() {
 
-    private var wasteList: List<Waste> = emptyList()
+class WasteAdapter : ListAdapter<Waste, WasteAdapter.WasteViewHolder>(WasteDiffCallback()) {
 
-    fun submitList(list: List<Waste>) {
-        wasteList = list
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WasteViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_waste, parent, false)
+        return WasteViewHolder(view)
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val typeText: TextView = view.findViewById(R.id.textTipo)
-        val quantityText: TextView = view.findViewById(R.id.textCantidad)
-        val locationText: TextView = view.findViewById(R.id.textUbicacion)
-        val dateText: TextView = view.findViewById(R.id.textFecha)
+    override fun onBindViewHolder(holder: WasteViewHolder, position: Int) {
+        val currentWaste = getItem(position)
+        holder.bind(currentWaste)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_waste, parent, false)
-        return ViewHolder(view)
+    class WasteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val typeText: TextView = itemView.findViewById(R.id.textTipo)
+        private val quantityText: TextView = itemView.findViewById(R.id.textCantidad)
+        private val locationText: TextView = itemView.findViewById(R.id.textUbicacion)
+        private val dateText: TextView = itemView.findViewById(R.id.textFecha)
+
+        fun bind(waste: Waste) {
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val context = itemView.context
+
+            typeText.text = context.getString(R.string.label_waste_type, waste.type)
+            quantityText.text = context.getString(R.string.label_quantity, waste.quantity)
+            locationText.text = context.getString(R.string.label_location, waste.location)
+            dateText.text = context.getString(R.string.label_date, dateFormat.format(waste.date))
+        }
     }
 
-    override fun getItemCount(): Int = wasteList.size
+    class WasteDiffCallback : DiffUtil.ItemCallback<Waste>() {
+        override fun areItemsTheSame(oldItem: Waste, newItem: Waste): Boolean {
+            return oldItem.id == newItem.id
+        }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val waste = wasteList[position]
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-
-        holder.typeText.text = waste.type
-        holder.quantityText.text = waste.quantity.toString()
-        holder.locationText.text = waste.location
-        holder.dateText.text = dateFormat.format(waste.date)
+        override fun areContentsTheSame(oldItem: Waste, newItem: Waste): Boolean {
+            return oldItem == newItem
+        }
     }
 }
