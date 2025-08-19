@@ -15,7 +15,7 @@
         android:drawablePadding="10dp"
         android:icon="@drawable/ic_add"
         android:padding="10dp"
-        android:text="Registrar Residuo"
+        android:text="@string/btn_register_waste"
         app:backgroundTint="?attr/colorPrimary"
         app:iconTint="@android:color/white"
         app:rippleColor="?attr/colorOnPrimary" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:icon="@drawable/ic_list"
-        android:text="Historial"
+        android:text="@string/btn_history"
         app:backgroundTint="?attr/colorPrimary"
         app:iconTint="@android:color/white"
         app:rippleColor="?attr/colorOnPrimary" />
@@ -39,5 +39,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:icon="@drawable/ic_chart"
-        android:text="Reportes" />
+        android:text="@string/btn_reports" />
 </LinearLayout>
