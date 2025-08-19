@@ -1,10 +1,10 @@
 package com.example.recoapp.data
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WasteDao {
-
     @Insert
     suspend fun insert(waste: Waste)
 
@@ -15,5 +15,9 @@ interface WasteDao {
     suspend fun delete(waste: Waste)
 
     @Query("SELECT * FROM waste ORDER BY date DESC")
-    suspend fun getAllWaste(): List<Waste>
+    fun getAllWaste(): Flow<List<Waste>>
+
+
+    @Query("SELECT * FROM waste WHERE (:type IS NULL OR type = :type) AND date BETWEEN :startDate AND :endDate")
+    suspend fun getWasteByFilters(startDate: Long, endDate: Long, type: String?): List<Waste>
 }
