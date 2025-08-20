@@ -10,7 +10,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/ic_ecolim_logo" />
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/textTitle"
