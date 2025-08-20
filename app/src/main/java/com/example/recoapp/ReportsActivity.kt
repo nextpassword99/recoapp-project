@@ -13,6 +13,7 @@ import java.util.*
 class ReportsActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
+    private lateinit var wasteTypes: Array<String>
     private var startDate: Date? = null
     private var endDate: Date? = null
 
@@ -22,29 +23,33 @@ class ReportsActivity : AppCompatActivity() {
 
         db = AppDatabase.getDatabase(this)
 
-        val typeSpinner = findViewById<AutoCompleteTextView>(R.id.spinnerTypeFilter)
+        val typeSpinner = findViewById<Spinner>(R.id.spinnerReport)
         val startDateEditText = findViewById<EditText>(R.id.editStartDate)
         val endDateEditText = findViewById<EditText>(R.id.editEndDate)
         val generateButton = findViewById<Button>(R.id.btnGenerateReport)
         val resultTextView = findViewById<TextView>(R.id.textReportResult)
 
-        val wasteTypes = arrayOf(
-            getString(R.string.all_types),
+        wasteTypes = arrayOf(
             getString(R.string.plastic),
             getString(R.string.paper),
             getString(R.string.glass),
             getString(R.string.organic),
             getString(R.string.other)
         )
-        typeSpinner.setAdapter(
-            ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, wasteTypes)
+
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            wasteTypes
         )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        typeSpinner.adapter = adapter
 
         startDateEditText.setOnClickListener { showDatePickerDialog(it as EditText, true) }
         endDateEditText.setOnClickListener { showDatePickerDialog(it as EditText, false) }
 
         generateButton.setOnClickListener {
-            val type = typeSpinner.text.toString()
+            val type = typeSpinner.selectedItem?.toString()
             if (startDate != null && endDate != null) {
                 lifecycleScope.launch {
                     val selectedType = if (type == getString(R.string.all_types)) null else type
