@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
 
         db = AppDatabase.getDatabase(this)
 
-        val typeSpinner = findViewById<AutoCompleteTextView>(R.id.spinnerTipo)
+        val typeSpinner = findViewById<Spinner>(R.id.spinnerTipo)
         val quantityEditText = findViewById<EditText>(R.id.editCantidad)
         val locationEditText = findViewById<EditText>(R.id.editUbicacion)
         val dateEditText = findViewById<EditText>(R.id.editFecha)
@@ -37,13 +37,13 @@ class RegisterActivity : AppCompatActivity() {
             getString(R.string.organic),
             getString(R.string.other)
         )
-        typeSpinner.setAdapter(
-            ArrayAdapter(
-                this,
-                android.R.layout.simple_dropdown_item_1line,
-                wasteTypes
-            )
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            wasteTypes
         )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        typeSpinner.adapter = adapter
 
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -62,7 +62,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         saveButton.setOnClickListener {
-            val type = typeSpinner.text.toString()
+            val type = typeSpinner.selectedItem?.toString() ?: ""
             val quantityStr = quantityEditText.text.toString()
             val location = locationEditText.text.toString()
             val comment = commentsEditText.text.toString()
