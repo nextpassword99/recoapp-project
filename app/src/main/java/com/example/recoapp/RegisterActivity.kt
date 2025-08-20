@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.example.recoapp.data.AppDatabase
 import com.example.recoapp.data.Waste
@@ -20,6 +21,11 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Registrar"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         db = AppDatabase.getDatabase(this)
 
@@ -95,5 +101,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.incomplete_form, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

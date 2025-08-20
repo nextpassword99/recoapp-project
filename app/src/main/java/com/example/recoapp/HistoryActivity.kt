@@ -2,6 +2,7 @@ package com.example.recoapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,11 @@ class HistoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Historial"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         recyclerView = findViewById(R.id.recyclerViewWaste)
         adapter = WasteAdapter()
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -29,5 +35,10 @@ class HistoryActivity : AppCompatActivity() {
                 adapter.submitList(wasteList)
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

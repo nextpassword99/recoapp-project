@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.example.recoapp.data.AppDatabase
 import kotlinx.coroutines.launch
@@ -19,6 +20,11 @@ class ReportsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reports)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Reportes"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         db = AppDatabase.getDatabase(this)
 
@@ -86,5 +92,10 @@ class ReportsActivity : AppCompatActivity() {
 
     private fun formatDate(date: Date): String {
         return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(date)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
