@@ -1,76 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@android:color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/filters_title"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/holo_red_dark"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="@android:color/white" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tipo de residuo"
-            android:paddingBottom="4dp" />
+            android:layout_centerInParent="true"
+            android:text="Generar Reporte"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp">
+
+        <EditText
+            android:id="@+id/editFecha"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Fecha"
+            android:focusable="false"
+            android:inputType="none"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinnerReport"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:prompt="@string/hint_waste_type" />
+            android:spinnerMode="dropdown"
+            android:entries="@array/tipo_reporte"
+            app:layout_constraintTop_toBottomOf="@id/editFecha"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/groupDatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/spinnerReport"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp">
 
-        <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/editRegistro"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="N° registro"
+                android:inputType="number"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editResponsable"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Responsable"
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editUbicacion"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Ubicación"
+                android:inputType="text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPesoBruto"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Peso bruto (kg)"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPlastico"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Plástico (kg)"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPapelCarton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Papel / Cartón (kg)"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editOrganico"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Orgánico (kg)"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editMetales"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Metales (kg)"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editObservaciones"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:hint="Observaciones"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/groupDatos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/btnEnviarReporte"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/hint_start_date">
+            android:text="ENVIAR REPORTE"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_green_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="12dp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editStartDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:hint="@string/hint_end_date">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editEndDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false" />
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnGenerateReport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/btn_generate_report" />
-
-    <TextView
-        android:id="@+id/textReportResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@color/background"
-        android:padding="8dp"
-        android:textAppearance="?attr/textAppearanceBody1" />
-
+        <!-- En ReportsActivity.kt puse los datos que se mostraran aqui hasta que el backend esté terminado -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
