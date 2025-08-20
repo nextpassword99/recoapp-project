@@ -11,18 +11,17 @@
         android:text="@string/filters_title"
         android:textAppearance="?attr/textAppearanceHeadline6" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hint_waste_type_optional">
-
-        <AutoCompleteTextView
-            android:id="@+id/spinnerTypeFilter"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Tipo de residuo"
+            android:paddingBottom="4dp" />
+
+        <Spinner
+            android:id="@+id/spinnerReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/hint_waste_type" />
 
     <LinearLayout
         android:layout_width="match_parent"
