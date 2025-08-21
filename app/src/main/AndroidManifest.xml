@@ -12,7 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_ecolim_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RecoApp">
+        android:theme="@style/Theme.RecoApp"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".SignupActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
