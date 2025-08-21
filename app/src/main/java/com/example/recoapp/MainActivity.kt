@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val btnToRegister = findViewById<TextView>(R.id.btn_to_register)
         val btnToHistory = findViewById<TextView>(R.id.btn_to_history)
         val btnToReports = findViewById<TextView>(R.id.btn_to_reports)
+        val btnLogout = findViewById<TextView>(R.id.btn_logout)
 
         btnToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
