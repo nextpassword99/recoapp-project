@@ -2,75 +2,83 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/filters_title"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="4dp"
-        android:text="@string/hint_waste_type" />
-
-    <Spinner
-        android:id="@+id/spinnerReport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/hint_waste_type" />
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/hint_start_date">
+            android:text="@string/filters_title"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editStartDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:hint="@string/hint_end_date">
+            android:paddingBottom="4dp"
+            android:text="@string/hint_waste_type" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editEndDate"
-                android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/spinnerReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/hint_waste_type" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:focusable="false" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:hint="@string/hint_start_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editStartDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="@string/hint_end_date">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEndDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGenerateReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_generate_report" />
+
+        <TextView
+            android:id="@+id/textReportResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/background"
+            android:padding="8dp"
+            android:textAppearance="?attr/textAppearanceBody1" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnGenerateReport"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/btn_generate_report" />
-
-    <TextView
-        android:id="@+id/textReportResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@color/background"
-        android:padding="8dp"
-        android:textAppearance="?attr/textAppearanceBody1" />
 
 </LinearLayout>
