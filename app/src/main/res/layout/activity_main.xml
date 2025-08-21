@@ -14,38 +14,41 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_to_register"
-        style="@style/Widget.Material3.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="10dp"
-        android:icon="@drawable/ic_add"
-        android:padding="10dp"
-        android:text="@string/btn_register_waste"
-        app:backgroundTint="?attr/colorPrimary"
-        app:iconTint="@android:color/white"
-        app:rippleColor="?attr/colorOnPrimary" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_to_register"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10dp"
+            android:icon="@drawable/ic_add"
+            android:padding="10dp"
+            android:text="@string/btn_register_waste"
+            android:textSize="16sp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:iconTint="@android:color/white"
+            app:rippleColor="?attr/colorOnPrimary" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_to_history"
-        style="@style/Widget.Material3.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:icon="@drawable/ic_list"
-        android:text="@string/btn_history"
-        app:backgroundTint="?attr/colorPrimary"
-        app:iconTint="@android:color/white"
-        app:rippleColor="?attr/colorOnPrimary" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_to_history"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:icon="@drawable/ic_list"
+            android:text="@string/btn_history"
+            android:textSize="16sp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:iconTint="@android:color/white"
+            app:rippleColor="?attr/colorOnPrimary" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_to_reports"
-        style="@style/Widget.Material3.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:icon="@drawable/ic_chart"
-        android:text="@string/btn_reports" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_to_reports"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:icon="@drawable/ic_chart"
+            android:text="@string/btn_reports"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>
