@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val btnToRegister = findViewById<Button>(R.id.btn_to_register)
         val btnToHistory = findViewById<Button>(R.id.btn_to_history)
         val btnToReports = findViewById<Button>(R.id.btn_to_reports)
+        val btnLogout = findViewById<Button>(R.id.btn_logout)
 
         btnToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
@@ -33,6 +34,14 @@ class MainActivity : AppCompatActivity() {
 
         btnToReports.setOnClickListener {
             startActivity(Intent(this, ReportsActivity::class.java))
+        }
+
+        btnLogout.setOnClickListener {
+            session.clear()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+            finish()
         }
     }
 
