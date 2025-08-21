@@ -2,7 +2,7 @@ package com.example.recoapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.recoapp.auth.SessionManager
@@ -19,10 +19,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = "RecoApp"
 
-        val btnToRegister = findViewById<Button>(R.id.btn_to_register)
-        val btnToHistory = findViewById<Button>(R.id.btn_to_history)
-        val btnToReports = findViewById<Button>(R.id.btn_to_reports)
-        val btnLogout = findViewById<Button>(R.id.btn_logout)
+        val btnToRegister = findViewById<TextView>(R.id.btn_to_register)
+        val btnToHistory = findViewById<TextView>(R.id.btn_to_history)
+        val btnToReports = findViewById<TextView>(R.id.btn_to_reports)
 
         btnToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

@@ -6,60 +6,60 @@
 
     <include layout="@layout/toolbar" />
 
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:columnCount="3"
+        android:rowCount="3"
+        android:padding="16dp"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true">
 
-        <com.google.android.material.button.MaterialButton
+        <TextView
             android:id="@+id/btn_to_register"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:icon="@drawable/ic_add"
-            android:padding="10dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:drawablePadding="6dp"
+            app:drawableTint="?attr/colorPrimary"
+            android:gravity="center"
             android:text="@string/btn_register_waste"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/colorPrimary"
-            app:iconTint="@android:color/white"
-            app:rippleColor="?attr/colorOnPrimary" />
-
-        <com.google.android.material.button.MaterialButton
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:drawableTopCompat="@drawable/ic_register"
+            app:tint="?attr/colorPrimary" />
+        <TextView
             android:id="@+id/btn_to_history"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:icon="@drawable/ic_list"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:drawablePadding="6dp"
+            app:drawableTint="?attr/colorPrimary"
+            android:gravity="center"
             android:text="@string/btn_history"
-            android:textSize="16sp"
-            app:backgroundTint="?attr/colorPrimary"
-            app:iconTint="@android:color/white"
-            app:rippleColor="?attr/colorOnPrimary" />
-
-        <com.google.android.material.button.MaterialButton
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:drawableTopCompat="@drawable/ic_history"
+            app:tint="?attr/colorPrimary" />
+        <TextView
             android:id="@+id/btn_to_reports"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:icon="@drawable/ic_chart"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:drawablePadding="6dp"
+            app:drawableTint="?attr/colorPrimary"
+            android:gravity="center"
             android:text="@string/btn_reports"
-            android:textSize="16sp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_logout"
-            style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/btn_logout"
-            android:textSize="16sp"
-            app:backgroundTint="@android:color/darker_gray"
-            app:rippleColor="@android:color/white" />
-    </LinearLayout>
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:drawableTopCompat="@drawable/ic_report"
+            app:tint="?attr/colorPrimary" />
+    </GridLayout>
 </LinearLayout>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">RecoApp</string>
 
-    <string name="btn_register_waste">Registrar residuos</string>
+    <string name="btn_register_waste">Registrar</string>
     <string name="btn_history">Historial</string>
     <string name="btn_reports">Reportes</string>
     <string name="btn_save_waste">Guardar residuo</string>
