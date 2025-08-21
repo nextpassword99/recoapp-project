@@ -61,5 +61,20 @@
             android:textColor="@color/black"
             app:drawableTopCompat="@drawable/ic_report"
             app:tint="?attr/colorPrimary" />
+        <TextView
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:drawablePadding="6dp"
+            app:drawableTint="?attr/colorPrimary"
+            android:gravity="center"
+            android:text="@string/btn_logout"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            app:drawableTopCompat="@drawable/ic_logout"
+            app:tint="?attr/colorPrimary" />
     </GridLayout>
 </LinearLayout>
