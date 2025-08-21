@@ -1,21 +1,18 @@
-import { Sequelize } from 'sequelize';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+import pg from "pg";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+dotenv.config();
 
-const dbPath = process.env.SQLITE_PATH || path.resolve(__dirname, '../../data/recoapp.sqlite');
-
-// Ensure directory exists
-const dir = path.dirname(dbPath);
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir, { recursive: true });
-}
-
-export const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: dbPath,
+export const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: "postgres",
+  protocol: "postgres",
+  dialectModule: pg,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
   logging: false,
 });
