@@ -7,13 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:baselineAligned="false">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:text="Tipo de residuo" />
+            android:text="@string/hint_waste_type" />
 
         <Spinner
             android:id="@+id/spinnerTipo"
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Cantidad (kg o L)">
+            android:hint="@string/hint_quantity">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editCantidad"
@@ -38,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Ubicación">
+            android:hint="@string/hint_location">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editUbicacion"
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Fecha">
+            android:hint="@string/hint_date">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editFecha"
@@ -64,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Comentarios">
+            android:hint="@string/hint_comments">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editComentarios"
@@ -80,6 +81,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:icon="@drawable/ic_save"
-            android:text="Guardar Residuo" />
+            android:text="@string/btn_save_waste" />
     </LinearLayout>
 </ScrollView>

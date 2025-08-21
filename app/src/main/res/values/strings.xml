@@ -5,12 +5,16 @@
     <string name="btn_history">Historial</string>
     <string name="btn_reports">Reportes</string>
     <string name="btn_save_waste">Guardar residuo</string>
+    <string name="btn_generate_report">Generar Reporte</string>
 
     <string name="hint_waste_type">Tipo de residuo</string>
-    <string name="hint_quantity">Cantidad</string>
+    <string name="hint_quantity">Cantidad (kg o L)</string>
     <string name="hint_location">Ubicación</string>
     <string name="hint_date">Fecha</string>
     <string name="hint_comments">Comentarios</string>
+    <string name="hint_waste_type_optional">Tipo de residuo (opcional)</string>
+    <string name="hint_start_date">Fecha de inicio</string>
+    <string name="hint_end_date">Fecha de fin</string>
 
     <string name="label_waste_type">Tipo: %1$s</string>
     <string name="label_quantity">Cantidad: %1$.2f kg</string>
@@ -31,10 +35,6 @@
     <string name="invalid_quantity">Cantidad inválida</string>
     <string name="incomplete_form">Completa todos los campos</string>
 
-    <string name="hint_waste_type_optional">Tipo de residuo (opcional)</string>
-    <string name="hint_start_date">Fecha de inicio</string>
-    <string name="hint_end_date">Fecha de fin</string>
-    <string name="btn_generate_report">Generar Reporte</string>
     <string name="all_types">Todos</string>
     <string name="select_date_range">Por favor, selecciona un rango de fechas.</string>
 </resources>
