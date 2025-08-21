@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                 try {
                     val res = repo.login(email, password)
                     session.saveAuthToken(res.token)
-                    Toast.makeText(this@LoginActivity, "Bienvenido ${'$'}{res.user.name}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Bienvenido ${res.user.name}", Toast.LENGTH_SHORT).show()
                     goToMain()
                 } catch (e: Exception) {
                     Toast.makeText(this@LoginActivity, "Error de inicio de sesión", Toast.LENGTH_SHORT).show()
