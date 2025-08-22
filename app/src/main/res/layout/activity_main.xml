@@ -9,11 +9,11 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alignmentMode="alignMargins"
         android:background="@color/background"
         android:columnCount="3"
-        android:rowCount="3"
         android:padding="16dp"
-        android:alignmentMode="alignMargins"
+        android:rowCount="3"
         android:useDefaultMargins="true">
 
         <TextView
@@ -24,13 +24,14 @@
             android:layout_column="0"
             android:layout_columnWeight="1"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorPrimary"
             android:gravity="center"
             android:text="@string/btn_register_waste"
-            android:textSize="14sp"
             android:textColor="@color/black"
+            android:textSize="14sp"
+            app:drawableTint="?attr/colorPrimary"
             app:drawableTopCompat="@drawable/ic_register"
             app:tint="?attr/colorPrimary" />
+
         <TextView
             android:id="@+id/btn_to_history"
             android:layout_width="0dp"
@@ -39,13 +40,14 @@
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorPrimary"
             android:gravity="center"
             android:text="@string/btn_history"
-            android:textSize="14sp"
             android:textColor="@color/black"
+            android:textSize="14sp"
+            app:drawableTint="?attr/colorPrimary"
             app:drawableTopCompat="@drawable/ic_history"
             app:tint="?attr/colorPrimary" />
+
         <TextView
             android:id="@+id/btn_to_reports"
             android:layout_width="0dp"
@@ -54,13 +56,30 @@
             android:layout_column="2"
             android:layout_columnWeight="1"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorPrimary"
             android:gravity="center"
             android:text="@string/btn_reports"
-            android:textSize="14sp"
             android:textColor="@color/black"
+            android:textSize="14sp"
+            app:drawableTint="?attr/colorPrimary"
             app:drawableTopCompat="@drawable/ic_report"
             app:tint="?attr/colorPrimary" />
+
+        <TextView
+            android:id="@+id/btn_sync_now"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="@string/btn_sync_now"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:drawableTint="?attr/colorPrimary"
+            app:drawableTopCompat="@drawable/ic_sync"
+            app:tint="?attr/colorPrimary" />
+
         <TextView
             android:id="@+id/btn_logout"
             android:layout_width="0dp"
@@ -69,11 +88,11 @@
             android:layout_column="1"
             android:layout_columnWeight="1"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorPrimary"
             android:gravity="center"
             android:text="@string/btn_logout"
-            android:textSize="14sp"
             android:textColor="@color/black"
+            android:textSize="14sp"
+            app:drawableTint="?attr/colorPrimary"
             app:drawableTopCompat="@drawable/ic_logout"
             app:tint="?attr/colorPrimary" />
     </GridLayout>

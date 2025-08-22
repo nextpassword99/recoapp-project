@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.example.recoapp.data.AppDatabase
 import com.example.recoapp.data.Waste
+import com.example.recoapp.sync.SyncManager
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -87,6 +88,7 @@ class RegisterActivity : AppCompatActivity() {
 
                     lifecycleScope.launch {
                         db.wasteDao().insert(waste)
+                        try { SyncManager(this@RegisterActivity).sync() } catch (_: Exception) { }
                         Toast.makeText(
                             this@RegisterActivity,
                             R.string.correctly_saved,

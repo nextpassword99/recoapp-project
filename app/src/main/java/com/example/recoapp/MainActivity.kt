@@ -6,6 +6,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.recoapp.auth.SessionManager
+import androidx.lifecycle.lifecycleScope
+import com.example.recoapp.sync.SyncManager
+import kotlinx.coroutines.launch
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var session: SessionManager
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val btnToHistory = findViewById<TextView>(R.id.btn_to_history)
         val btnToReports = findViewById<TextView>(R.id.btn_to_reports)
         val btnLogout = findViewById<TextView>(R.id.btn_logout)
+        val btnSyncNow = findViewById<TextView>(R.id.btn_sync_now)
 
         btnToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
@@ -43,6 +48,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        btnSyncNow.setOnClickListener {
+            btnSyncNow.isEnabled = false
+            val originalText = btnSyncNow.text
+            btnSyncNow.text = getString(R.string.btn_sync_now) + "..."
+            lifecycleScope.launch {
+                try {
+                    SyncManager(this@MainActivity).sync()
+                    Toast.makeText(this@MainActivity, "Sincronización completada", Toast.LENGTH_SHORT).show()
+                } catch (_: Exception) {
+                    Toast.makeText(this@MainActivity, "Fallo de sincronización", Toast.LENGTH_SHORT).show()
+                } finally {
+                    btnSyncNow.text = originalText
+                    btnSyncNow.isEnabled = true
+                }
+            }
+        }
     }
 
     override fun onStart() {
@@ -50,6 +72,12 @@ class MainActivity : AppCompatActivity() {
         if (this::session.isInitialized && session.fetchAuthToken() == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+            return
+        }
+        if (this::session.isInitialized && session.fetchAuthToken() != null) {
+            lifecycleScope.launch {
+                try { SyncManager(this@MainActivity).sync() } catch (_: Exception) { }
+            }
         }
     }
 }

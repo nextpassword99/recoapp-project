@@ -37,7 +37,12 @@ class WasteAdapter : ListAdapter<Waste, WasteAdapter.WasteViewHolder>(WasteDiffC
             typeText.text = context.getString(R.string.label_waste_type, waste.type)
             quantityText.text = context.getString(R.string.label_quantity, waste.quantity)
             locationText.text = context.getString(R.string.label_location, waste.location)
-            dateText.text = context.getString(R.string.label_date, dateFormat.format(waste.date))
+            val dateStr = try {
+                dateFormat.format(waste.date)
+            } catch (_: Exception) {
+                "-"
+            }
+            dateText.text = context.getString(R.string.label_date, dateStr)
         }
     }
 

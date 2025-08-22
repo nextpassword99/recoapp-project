@@ -4,6 +4,7 @@
     <string name="btn_register_waste">Registrar</string>
     <string name="btn_history">Historial</string>
     <string name="btn_reports">Reportes</string>
+    <string name="btn_sync_now">Sincronizar</string>
     <string name="btn_save_waste">Guardar residuo</string>
     <string name="btn_generate_report">Generar Reporte</string>
 
