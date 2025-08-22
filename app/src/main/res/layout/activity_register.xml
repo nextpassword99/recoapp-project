@@ -27,6 +27,14 @@
                 android:layout_height="wrap_content"
                 android:prompt="@string/hint_waste_type" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDetectCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="8dp"
+                android:text="@string/btn_detect_camera" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
