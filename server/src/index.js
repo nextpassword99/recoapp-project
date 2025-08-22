@@ -13,8 +13,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-sequelize.sync({ alter: true }).catch((err) => {
-  console.error("Failed to sync database", err);
+const ready = sequelize
+  .sync({ alter: true })
+  .then(() => console.log("Database synced"))
+  .catch((err) => {
+    console.error("Failed to sync database", err);
+
+    throw err;
+  });
+
+app.use(async (req, res, next) => {
+  try {
+    await ready;
+    next();
+  } catch (e) {
+    res.status(500).json({ message: "Database not ready", error: String(e) });
+  }
 });
 
 app.get("/", (req, res) => {
