@@ -6,6 +6,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.recoapp.auth.SessionManager
+import androidx.lifecycle.lifecycleScope
+import com.example.recoapp.sync.SyncManager
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var session: SessionManager
@@ -50,6 +53,12 @@ class MainActivity : AppCompatActivity() {
         if (this::session.isInitialized && session.fetchAuthToken() == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+            return
+        }
+        if (this::session.isInitialized && session.fetchAuthToken() != null) {
+            lifecycleScope.launch {
+                try { SyncManager(this@MainActivity).sync() } catch (_: Exception) { }
+            }
         }
     }
 }
