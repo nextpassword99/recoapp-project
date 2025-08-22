@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WasteDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(waste: Waste)
 
     @Update
@@ -20,4 +20,16 @@ interface WasteDao {
 
     @Query("SELECT * FROM waste WHERE (:type IS NULL OR type = :type) AND date BETWEEN :startDate AND :endDate")
     suspend fun getWasteByFilters(startDate: Long, endDate: Long, type: String?): List<Waste>
+
+    @Query("SELECT * FROM waste WHERE modified_at > :since")
+    suspend fun getModifiedSince(since: Long): List<Waste>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertAll(items: List<Waste>)
+
+    @Query("DELETE FROM waste WHERE id = :id")
+    suspend fun hardDeleteById(id: String)
+
+    @Query("SELECT * FROM waste WHERE id = :id LIMIT 1")
+    suspend fun findById(id: String): Waste?
 }

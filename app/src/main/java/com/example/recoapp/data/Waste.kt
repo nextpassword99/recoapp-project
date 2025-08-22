@@ -4,11 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.ColumnInfo
 import java.util.Date
+import java.util.UUID
 
 @Entity(tableName = "waste")
 data class Waste(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    @PrimaryKey
+    val id: String = UUID.randomUUID().toString(),
 
     @ColumnInfo(name = "type")
     val type: String,
@@ -23,5 +24,11 @@ data class Waste(
     val date: Date,
 
     @ColumnInfo(name = "comments")
-    val comment: String? = null
+    val comment: String? = null,
+
+    @ColumnInfo(name = "modified_at")
+    val modifiedAt: Long = System.currentTimeMillis(),
+
+    @ColumnInfo(name = "deleted")
+    val deleted: Boolean = false
 )
