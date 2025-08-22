@@ -7,6 +7,7 @@
     <string name="btn_sync_now">Sincronizar</string>
     <string name="btn_save_waste">Guardar residuo</string>
     <string name="btn_generate_report">Generar Reporte</string>
+    <string name="btn_detect_camera">Detectar con cámara</string>
 
     <string name="hint_waste_type">Tipo de residuo</string>
     <string name="hint_quantity">Cantidad (kg o L)</string>
@@ -40,4 +41,11 @@
     <string name="select_date_range">Por favor, selecciona un rango de fechas.</string>
 
     <string name="btn_logout">Cerrar sesión</string>
+
+    <!-- Camera strings -->
+    <string name="camera_title">Reconocimiento de residuo</string>
+    <string name="camera_hint">Apunta la cámara al residuo para detectar el tipo…</string>
+    <string name="camera_permission_required">Se requiere permiso de cámara</string>
+    <string name="camera_close">Cerrar</string>
+    <string name="camera_detecting">Detectando…</string>
 </resources>

@@ -1,11 +1,13 @@
 package com.example.recoapp
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.recoapp.data.AppDatabase
 import com.example.recoapp.data.Waste
 import com.example.recoapp.sync.SyncManager
@@ -18,6 +20,21 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var wasteTypes: Array<String>
     private lateinit var db: AppDatabase
     private var selectedDate: Date? = null
+    private val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val detected = result.data?.getStringExtra(CameraActivity.EXTRA_DETECTED_TYPE)
+            if (!detected.isNullOrBlank()) {
+                // Buscar el índice del tipo detectado en el arreglo del Spinner
+                val index = wasteTypes.indexOfFirst { it.equals(detected, ignoreCase = true) }
+                if (index >= 0) {
+                    findViewById<Spinner>(R.id.spinnerTipo).setSelection(index)
+                    Toast.makeText(this, "Tipo detectado: $detected", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Tipo detectado no coincide con opciones", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +53,7 @@ class RegisterActivity : AppCompatActivity() {
         val dateEditText = findViewById<EditText>(R.id.editFecha)
         val commentsEditText = findViewById<EditText>(R.id.editComentarios)
         val saveButton = findViewById<Button>(R.id.btnGuardar)
+        val btnDetectCamera = findViewById<Button>(R.id.btnDetectCamera)
 
         wasteTypes = arrayOf(
             getString(R.string.plastic),
@@ -51,6 +69,11 @@ class RegisterActivity : AppCompatActivity() {
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         typeSpinner.adapter = adapter
+
+        btnDetectCamera.setOnClickListener {
+            val intent = Intent(this, CameraActivity::class.java)
+            cameraLauncher.launch(intent)
+        }
 
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
