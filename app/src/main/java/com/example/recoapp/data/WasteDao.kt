@@ -14,7 +14,7 @@ interface WasteDao {
     @Delete
     suspend fun delete(waste: Waste)
 
-    @Query("SELECT * FROM waste ORDER BY date DESC")
+    @Query("SELECT * FROM waste WHERE deleted = 0 ORDER BY date DESC")
     fun getAllWaste(): Flow<List<Waste>>
 
 

@@ -9,6 +9,7 @@ import com.example.recoapp.auth.SessionManager
 import androidx.lifecycle.lifecycleScope
 import com.example.recoapp.sync.SyncManager
 import kotlinx.coroutines.launch
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var session: SessionManager
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val btnToHistory = findViewById<TextView>(R.id.btn_to_history)
         val btnToReports = findViewById<TextView>(R.id.btn_to_reports)
         val btnLogout = findViewById<TextView>(R.id.btn_logout)
+        val btnSyncNow = findViewById<TextView>(R.id.btn_sync_now)
 
         btnToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
@@ -45,6 +47,23 @@ class MainActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
             finish()
+        }
+
+        btnSyncNow.setOnClickListener {
+            btnSyncNow.isEnabled = false
+            val originalText = btnSyncNow.text
+            btnSyncNow.text = getString(R.string.btn_sync_now) + "..."
+            lifecycleScope.launch {
+                try {
+                    SyncManager(this@MainActivity).sync()
+                    Toast.makeText(this@MainActivity, "Sincronización completada", Toast.LENGTH_SHORT).show()
+                } catch (_: Exception) {
+                    Toast.makeText(this@MainActivity, "Fallo de sincronización", Toast.LENGTH_SHORT).show()
+                } finally {
+                    btnSyncNow.text = originalText
+                    btnSyncNow.isEnabled = true
+                }
+            }
         }
     }
 
