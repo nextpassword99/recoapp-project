@@ -1,18 +1,17 @@
 import { Router } from "express";
 import { Op } from "sequelize";
-import { auth } from "../middleware/auth.js";
 import Waste from "../models/Waste.js";
 
 const router = Router();
 
-router.get("/wastes", auth, async (req, res) => {
+router.get("/wastes", async (req, res) => {
   try {
     const since = Number(req.query.since || 0);
     if (Number.isNaN(since))
       return res.status(400).json({ message: "Invalid since" });
 
     const items = await Waste.findAll({
-      where: { userId: req.user.id, modifiedAt: { [Op.gt]: since } },
+      where: { modifiedAt: { [Op.gt]: since } },
       order: [["modifiedAt", "ASC"]],
     });
 
@@ -23,7 +22,7 @@ router.get("/wastes", auth, async (req, res) => {
   }
 });
 
-router.post("/wastes", auth, async (req, res) => {
+router.post("/wastes", async (req, res) => {
   try {
     const { items } = req.body || {};
     if (!Array.isArray(items))
@@ -50,13 +49,10 @@ router.post("/wastes", auth, async (req, res) => {
         continue;
       }
 
-      const existing = await Waste.findOne({
-        where: { id, userId: req.user.id },
-      });
+      const existing = await Waste.findOne({ where: { id } });
       if (!existing) {
         await Waste.create({
           id,
-          userId: req.user.id,
           type,
           quantity,
           location,

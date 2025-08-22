@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../lib/database.js";
-import User from "./User.js";
 
 class Waste extends Model {}
 
@@ -9,10 +8,6 @@ Waste.init(
     id: {
       type: DataTypes.STRING,
       primaryKey: true,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
     type: {
       type: DataTypes.STRING,
@@ -49,11 +44,8 @@ Waste.init(
     modelName: "Waste",
     tableName: "wastes",
     timestamps: true,
-    indexes: [{ fields: ["userId"] }, { fields: ["modifiedAt"] }],
+    indexes: [{ fields: ["modifiedAt"] }],
   }
 );
-
-User.hasMany(Waste, { foreignKey: "userId" });
-Waste.belongsTo(User, { foreignKey: "userId" });
 
 export default Waste;
