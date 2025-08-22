@@ -78,6 +78,9 @@ class RegisterActivity : AppCompatActivity() {
         val calendar = Calendar.getInstance()
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
+        selectedDate = calendar.time
+        dateEditText.setText(dateFormat.format(selectedDate!!))
+
         dateEditText.setOnClickListener {
             DatePickerDialog(
                 this, { _, year, month, day ->
